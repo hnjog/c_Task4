@@ -1,4 +1,4 @@
-﻿#include"PotionDictionary.h"
+#include"PotionDictionary.h"
 #include<iostream>
 
 PotionDictionary::PotionDictionary()
@@ -43,4 +43,18 @@ void PotionDictionary::displayAllRecipes() const
 		cout << '\n';
 	}
 	cout << "---------------------------\n";
+}
+
+PotionRecipe PotionDictionary::SearchRecipeByName(const string& name) const
+{
+	for (const PotionRecipe& recipe : recipes)
+	{
+		if (recipe.GetPotionName() == name)
+		{
+			PotionRecipe findRecipe(recipe);
+			return findRecipe;
+		}
+	}
+
+	return PotionRecipe();
 }

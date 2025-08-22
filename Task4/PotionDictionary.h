@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "PotionRecipe.h"
 
@@ -15,6 +15,7 @@ public:
     // 모든 레시피 출력 메서드
     void displayAllRecipes() const;
 
+    PotionRecipe SearchRecipeByName(const string& name) const;
 protected:
 	vector<PotionRecipe> recipes;
 };
