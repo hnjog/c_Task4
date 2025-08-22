@@ -8,7 +8,7 @@ PotionRecipe::PotionRecipe()
 
 PotionRecipe::PotionRecipe(const std::string& name, const vector<string>& ingredients)
 	: potionName(name),
-	ingredients(ingredients)
+	ingredients(ingredients.begin(), ingredients.end())
 {
 }
 
@@ -28,25 +28,22 @@ void PotionRecipe::DisplayRecipe() const
 	cout << "  > 필요 재료: ";
 
 	// 재료 목록을 순회하며 출력
-	for (size_t j = 0; j < ingredients.size(); ++j)
+	for (auto it = ingredients.begin(); it != ingredients.end(); it++)
 	{
-		cout << ingredients[j];
-		// 마지막 재료가 아니면 쉼표로 구분
-		if (j < ingredients.size() - 1)
+		cout << *it;
+		if (next(it) != ingredients.end())
 		{
 			cout << ", ";
 		}
 	}
+
 	cout << '\n';
 }
 
 bool PotionRecipe::IsIngredients(const string& ingredient) const
 {
-	for (const string& ingre : ingredients)
-	{
-		if (ingre == ingredient)
-			return true;
-	}
+	if (ingredients.find(ingredient) == ingredients.end())
+		return false;
 
-	return false;
+	return true;
 }

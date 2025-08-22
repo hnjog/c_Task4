@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include <set>
 #include <vector>
 #include <string>
 
@@ -20,11 +21,11 @@ public:
 	void DisplayRecipe() const;
 
 	const string& GetPotionName() const { return potionName; }
-	const vector<string>& GetIngredients() const { return ingredients; }
+	const set<string>& GetIngredients() const { return ingredients; }
 
 	bool IsIngredients(const string& ingredient) const;
 
 protected:
 	string potionName;
-	vector<string> ingredients; // 단일 재료에서 재료 '목록'으로 변경
+	set<string> ingredients; // 단일 재료에서 재료 '목록'으로 변경
 };
