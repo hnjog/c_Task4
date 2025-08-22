@@ -17,6 +17,8 @@ public:
 	virtual ~PotionRecipe();
 
 public:
+	void DisplayRecipe() const;
+
 	const string& GetPotionName() const { return potionName; }
 	const vector<string>& GetIngredients() const { return ingredients; }
 

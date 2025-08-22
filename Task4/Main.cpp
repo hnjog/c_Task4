@@ -98,19 +98,7 @@ int main()
             cout << "\n--- [ 해당 재료가 들어가는 레시피 목록 ] ---" << '\n';
             for (const PotionRecipe& recipe : ingredients_input)
             {
-                cout << "- 물약 이름: " << recipe.GetPotionName() << '\n';
-                cout << "  > 필요 재료: ";
-
-                const vector<string>& ingredients = recipe.GetIngredients();
-                for (size_t j = 0; j < ingredients.size(); ++j)
-                {
-                    cout << ingredients[j];
-                    if (j < ingredients.size() - 1)
-                    {
-                        cout << ", ";
-                    }
-                }
-                cout << '\n';
+                recipe.DisplayRecipe();
             }
             cout << "---------------------------\n";
 

@@ -26,21 +26,7 @@ void PotionDictionary::displayAllRecipes() const
 	cout << "\n--- [ 전체 레시피 목록 ] ---" << '\n';
 	for (const PotionRecipe& recipe : recipes)
 	{
-		cout << "- 물약 이름: " << recipe.GetPotionName() << '\n';
-		cout << "  > 필요 재료: ";
-
-		// 재료 목록을 순회하며 출력
-		const vector<string>& ingredients = recipe.GetIngredients();
-		for (size_t j = 0; j < ingredients.size(); ++j)
-		{
-			cout << ingredients[j];
-			// 마지막 재료가 아니면 쉼표로 구분
-			if (j < ingredients.size() - 1)
-			{
-				cout << ", ";
-			}
-		}
-		cout << '\n';
+		recipe.DisplayRecipe();
 	}
 	cout << "---------------------------\n";
 }
