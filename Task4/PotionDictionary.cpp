@@ -9,13 +9,13 @@ PotionDictionary::~PotionDictionary()
 {
 }
 
-void PotionDictionary::addRecipe(const string& name, const vector<string>& ingredients)
+void PotionDictionary::AddRecipe(const string& name, const vector<string>& ingredients)
 {
 	recipes.push_back(PotionRecipe(name, ingredients));
 	cout << ">> 새로운 레시피 '" << name << "'이(가) 추가되었습니다." << '\n';
 }
 
-void PotionDictionary::displayAllRecipes() const
+void PotionDictionary::DisplayAllRecipes() const
 {
 	if (recipes.empty())
 	{

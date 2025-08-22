@@ -11,14 +11,14 @@ AlchemyWorkshop::~AlchemyWorkshop()
 {
 }
 
-void AlchemyWorkshop::addRecipe(const string& name, const vector<string>& ingredients)
+void AlchemyWorkshop::AddRecipe(const string& name, const vector<string>& ingredients)
 {
-	MyPoctionDictonary->addRecipe(name, ingredients);
+	MyPoctionDictonary->AddRecipe(name, ingredients);
 }
 
-void AlchemyWorkshop::displayAllRecipes() const
+void AlchemyWorkshop::DisplayAllRecipes() const
 {
-	MyPoctionDictonary->displayAllRecipes();
+	MyPoctionDictonary->DisplayAllRecipes();
 }
 
 PotionRecipe AlchemyWorkshop::SearchRecipeByName(const string& name) const

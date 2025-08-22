@@ -57,7 +57,7 @@ int main()
             // 입력받은 재료가 하나 이상 있을 때만 레시피 추가
             if (!ingredients_input.empty()) 
             {
-                myWorkshop.addRecipe(name, ingredients_input);
+                myWorkshop.AddRecipe(name, ingredients_input);
             }
             else 
             {
@@ -67,7 +67,7 @@ int main()
         }
         else if (choice == 2) 
         {
-            myWorkshop.displayAllRecipes();
+            myWorkshop.DisplayAllRecipes();
         }
         else if (choice == 3)
         {
