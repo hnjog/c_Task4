@@ -79,7 +79,7 @@ bool PotionRepository::DispensePotion(const string& potionName)
 	potionStockMap[potionName].remainCount++;
 	potionStockMap[potionName].emptyCount--;
 	cout << "포션 생성 완료!" << '\n';
-	cout << potionName << "을 " << 1 << "개 만들었어요!" << '\n';
+	cout << potionName << "의 재고 개수 : " << potionStockMap[potionName].remainCount << '\n';
 	return true;
 }
 
