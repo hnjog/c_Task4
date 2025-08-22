@@ -17,7 +17,7 @@ public:
     void DisplayAllRecipes() const;
 
     PotionRecipe SearchRecipeByName(const string& name) const;
-    vector< PotionRecipe> SearchRecipeByIngredient(const string& ingredient) const;
+    vector<PotionRecipe> SearchRecipeByIngredient(const string& ingredient) const;
 
 protected:
 	vector<PotionRecipe> recipes;
