@@ -4,6 +4,17 @@
 #include "PotionRecipe.h"
 #include "AlchemyWorkshop.h"
 
+bool PotionNameEmptyCheck(const string& name)
+{
+    if (name.size() == 0)
+    {
+        cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+        return true;
+    }
+
+    return false;
+}
+
 int main() 
 {
     AlchemyWorkshop myWorkshop;
@@ -41,11 +52,8 @@ int main()
             cin.ignore(10000, '\n');
             getline(cin, name);
 
-            if (name.size() == 0)
-            {
-                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+            if (PotionNameEmptyCheck(name))
                 continue;
-            }
 
             // 여러 재료를 입력받기 위한 로직
             vector<string> ingredients_input;
@@ -90,11 +98,8 @@ int main()
             cin.ignore(10000, '\n');
             getline(cin, name);
 
-            if (name.size() == 0)
-            {
-                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+            if (PotionNameEmptyCheck(name))
                 continue;
-            }
 
             myWorkshop.ProvidePotion(name);
         }
@@ -105,13 +110,22 @@ int main()
             cin.ignore(10000, '\n');
             getline(cin, name);
 
-            if (name.size() == 0)
-            {
-                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+            if (PotionNameEmptyCheck(name))
                 continue;
-            }
 
             myWorkshop.ProducePotion(name);
+        }
+        else if (choice == 6)
+        {
+            string name;
+            cout << "물약 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, name);
+
+            if (PotionNameEmptyCheck(name))
+                continue;
+
+            myWorkshop.ReturnEmptyPotion(name);
         }
         else if (choice == 7) 
         {

@@ -50,3 +50,11 @@ void AlchemyWorkshop::ProducePotion(const string& name)
 
 	MyPotionRepository->DispensePotion(name);
 }
+
+void AlchemyWorkshop::ReturnEmptyPotion(const string& name)
+{
+	if (name.size() == 0)
+		return;
+
+	MyPotionRepository->ReturnPotion(name);
+}
