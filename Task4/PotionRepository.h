@@ -35,7 +35,7 @@ public:
 class PotionRepository
 {
 public:
-	PotionRepository(shared_ptr<PotionDictionary> potionDictionary);
+	PotionRepository();
 	virtual ~PotionRepository();
 
 public:
@@ -56,6 +56,5 @@ private:
 
 protected:
 	unordered_map<string, PotionStack> potionStackMap; // 현재 가진 포션 (공병 x)
-	weak_ptr<PotionDictionary> wPtrPotionDictionary;
 };
 
