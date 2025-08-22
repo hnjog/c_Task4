@@ -35,3 +35,18 @@ void AlchemyWorkshop::ShowAllPotionStock() const
 	MyPotionRepository->DisplayAllStocks();
 }
 
+void AlchemyWorkshop::ProvidePotion(const string& name)
+{
+	if (name.size() == 0)
+		return;
+
+	MyPotionRepository->ProvidePotion(name);
+}
+
+void AlchemyWorkshop::ProducePotion(const string& name)
+{
+	if (name.size() == 0)
+		return;
+
+	MyPotionRepository->DispensePotion(name);
+}

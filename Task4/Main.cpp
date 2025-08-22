@@ -10,13 +10,15 @@ int main()
 
     while (true) 
     {
+        cout << "환영합니다! 모험가님!" << '\n';
         cout << "⚗️ 연금술 공방 관리 시스템" << '\n';
         cout << "1. 레시피 추가" << '\n';
         cout << "2. 모든 레시피 출력" << '\n';
         cout << "3. 물약 재고 현황 출력" << '\n';
-        cout << "4. 물약 생산하기" << '\n';
-        cout << "5. 물약의 빈병 반환하기" << '\n';
-        cout << "6. 종료" << '\n';
+        cout << "4. 물약 제공받기" << '\n';
+        cout << "5. 물약 생산하기" << '\n';
+        cout << "6. 물약의 빈병 반환하기" << '\n';
+        cout << "7. 종료" << '\n';
         cout << "선택: ";
 
         int choice;
@@ -38,6 +40,12 @@ int main()
             cout << "물약 이름: ";
             cin.ignore(10000, '\n');
             getline(cin, name);
+
+            if (name.size() == 0)
+            {
+                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+                continue;
+            }
 
             // 여러 재료를 입력받기 위한 로직
             vector<string> ingredients_input;
@@ -71,7 +79,41 @@ int main()
         {
             myWorkshop.ShowAllPotionReceipe();
         }
-        else if (choice == 6) 
+        else if (choice == 3)
+        {
+            myWorkshop.ShowAllPotionStock();
+        }
+        else if (choice == 4)
+        {
+            string name;
+            cout << "물약 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, name);
+
+            if (name.size() == 0)
+            {
+                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+                continue;
+            }
+
+            myWorkshop.ProvidePotion(name);
+        }
+        else if (choice == 5)
+        {
+            string name;
+            cout << "물약 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, name);
+
+            if (name.size() == 0)
+            {
+                cout << ">> 물약 이름을 입력하지 않았습니다!" << '\n';
+                continue;
+            }
+
+            myWorkshop.ProducePotion(name);
+        }
+        else if (choice == 7) 
         {
             cout << "공방 문을 닫습니다..." << '\n';
             break;

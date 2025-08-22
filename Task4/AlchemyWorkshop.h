@@ -23,6 +23,8 @@ public:
 	void DevelopPotionReceipe(const string& name, const vector<string>& ingredients_input) const;
 	void ShowAllPotionReceipe() const;
 	void ShowAllPotionStock() const;
+	void ProvidePotion(const string& name);
+	void ProducePotion(const string& name);
 
 protected:
 	unique_ptr<PotionDictionary> MyPoctionDictonary;
