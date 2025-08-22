@@ -11,6 +11,9 @@
     <ClCompile Include="PotionDictionary.cpp">
       <Filter>Contents\Shop\ShopFunc</Filter>
     </ClCompile>
+    <ClCompile Include="PotionRepository.cpp">
+      <Filter>Contents\Shop\ShopFunc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -34,6 +37,9 @@
       <Filter>Contents\Shop</Filter>
     </ClInclude>
     <ClInclude Include="PotionDictionary.h">
+      <Filter>Contents\Shop\ShopFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionRepository.h">
       <Filter>Contents\Shop\ShopFunc</Filter>
     </ClInclude>
   </ItemGroup>
