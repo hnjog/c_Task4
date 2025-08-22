@@ -9,7 +9,7 @@ class PotionRecipe;
 
 using namespace std;
 
-// AlchemyWorkshop 클래스: 레시피 목록을 관리
+// AlchemyWorkshop 클래스: 포션 레시피 및 포션 기능 전반 담당 클래스
 class AlchemyWorkshop 
 {
 public:

@@ -2,6 +2,7 @@
 
 #include "PotionRecipe.h"
 
+// 포션 레시피 추가 및 검색 용 클래스
 class PotionDictionary
 {
 public:
