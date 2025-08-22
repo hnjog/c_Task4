@@ -27,8 +27,8 @@ int main()
         cout << "2. 모든 레시피 출력" << '\n';
         cout << "3. 물약 재고 현황 출력" << '\n';
         cout << "4. 물약 제공받기" << '\n';
-        cout << "5. 물약 생산하기" << '\n';
-        cout << "6. 물약의 빈병 반환하기" << '\n';
+        cout << "5. 마신 빈병 반환" << '\n';
+        cout << "6. 특정 재료로 만들 수 있는 포션 검색" << '\n';
         cout << "7. 종료" << '\n';
         cout << "선택: ";
 
@@ -106,19 +106,7 @@ int main()
         else if (choice == 5)
         {
             string name;
-            cout << "물약 이름: ";
-            cin.ignore(10000, '\n');
-            getline(cin, name);
-
-            if (PotionNameEmptyCheck(name))
-                continue;
-
-            myWorkshop.ProducePotion(name);
-        }
-        else if (choice == 6)
-        {
-            string name;
-            cout << "물약 이름: ";
+            cout << "반환할 빈병 이름: ";
             cin.ignore(10000, '\n');
             getline(cin, name);
 
@@ -127,7 +115,29 @@ int main()
 
             myWorkshop.ReturnEmptyPotion(name);
         }
-        else if (choice == 7) 
+        else if (choice == 6)
+        {
+            string ingredient;
+            cout << "재료 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, ingredient);
+
+            vector<PotionRecipe> result = myWorkshop.GetCanMakePotionsByIngre(ingredient);
+            if (result.size() == 0)
+            {
+                cout << "이 재료로 만들 수 있는 포션이 없습니다!" << '\n';
+            }
+            else
+            {
+                cout << "\n--- [ 해당 재료가 들어가는 레시피 목록 ] ---" << '\n';
+                for (const PotionRecipe& recipe : result)
+                {
+                    recipe.DisplayRecipe();
+                }
+                cout << "---------------------------\n";
+            }
+        }
+        else if (choice == 7)
         {
             cout << "공방 문을 닫습니다..." << '\n';
             break;

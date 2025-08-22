@@ -1,4 +1,4 @@
-#include "AlchemyWorkshop.h"
+﻿#include "AlchemyWorkshop.h"
 #include "PotionDictionary.h"
 #include "PotionRecipe.h"
 #include "PotionRepository.h"
@@ -54,12 +54,18 @@ void AlchemyWorkshop::ReturnEmptyPotion(const string& name)
 	MyPotionRepository->DispensePotion(name);
 }
 
-void AlchemyWorkshop::ReturnEmptyPotion(const string& name)
+vector<PotionRecipe> AlchemyWorkshop::GetCanMakePotionsByIngre(const string& name)
 {
-	if (name.size() == 0)
-		return;
+	vector<PotionRecipe> RecipeVector;
 
-	MyPotionRepository->ReturnPotion(name);
+	if (name.size() == 0)
+		return RecipeVector;
+
+	RecipeVector = MyPoctionDictonary->SearchRecipeByIngredient(name);
+
+	return RecipeVector;
+}
+
 bool AlchemyWorkshop::IsValidPotionName(const string& name)
 {
 	PotionRecipe searchName = MyPoctionDictonary->SearchRecipeByName(name);
