@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "PotionRecipe.h"
+#include <map>
 
 // 포션 레시피 추가 및 검색 용 클래스
 class PotionDictionary
@@ -20,5 +21,5 @@ public:
     vector<PotionRecipe> SearchRecipeByIngredient(const string& ingredient) const;
 
 protected:
-	vector<PotionRecipe> recipes;
+	map<string,PotionRecipe> recipesMap;
 };
