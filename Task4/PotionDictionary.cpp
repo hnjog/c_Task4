@@ -1,4 +1,4 @@
-#include"PotionDictionary.h"
+﻿#include"PotionDictionary.h"
 #include<iostream>
 
 PotionDictionary::PotionDictionary()
@@ -57,4 +57,18 @@ PotionRecipe PotionDictionary::SearchRecipeByName(const string& name) const
 	}
 
 	return PotionRecipe();
+}
+
+vector<PotionRecipe> PotionDictionary::SearchRecipeByIngredient(const string& ingredient) const
+{
+	vector<PotionRecipe> FindRecipes;
+	for (const PotionRecipe& recipe : recipes)
+	{
+		if (recipe.IsIngredients(ingredient))
+		{
+			FindRecipes.push_back(recipe);
+		}
+	}
+
+	return FindRecipes;
 }
