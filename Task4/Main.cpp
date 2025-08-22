@@ -13,7 +13,9 @@ int main()
         cout << "⚗️ 연금술 공방 관리 시스템" << '\n';
         cout << "1. 레시피 추가" << '\n';
         cout << "2. 모든 레시피 출력" << '\n';
-        cout << "3. 종료" << '\n';
+        cout << "3. 레시피 검색(이름)" << '\n';
+        cout << "4. 레시피 검색(재료)" << '\n';
+        cout << "5. 종료" << '\n';
         cout << "선택: ";
 
         int choice;
@@ -66,9 +68,54 @@ int main()
         else if (choice == 2) 
         {
             myWorkshop.displayAllRecipes();
+        }
+        else if (choice == 3)
+        {
+            string name;
+            cout << "물약 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, name);
+
+            PotionRecipe recipe = myWorkshop.SearchRecipeByName(name);
+            if (recipe.GetPotionName() != "")
+            {
+                cout << "해당 물약 레시피가 있습니다!" << '\n';
+            }
+            else
+            {
+                cout << "해당 물약 레시피는 없습니다!" << '\n';
+            }
+        }
+        else if (choice == 4)
+        {
+            string ingredient;
+            cout << "재료 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, ingredient);
+
+            vector<PotionRecipe> ingredients_input = myWorkshop.SearchRecipeByIngredient(ingredient);
+
+            cout << "\n--- [ 해당 재료가 들어가는 레시피 목록 ] ---" << '\n';
+            for (const PotionRecipe& recipe : ingredients_input)
+            {
+                cout << "- 물약 이름: " << recipe.GetPotionName() << '\n';
+                cout << "  > 필요 재료: ";
+
+                const vector<string>& ingredients = recipe.GetIngredients();
+                for (size_t j = 0; j < ingredients.size(); ++j)
+                {
+                    cout << ingredients[j];
+                    if (j < ingredients.size() - 1)
+                    {
+                        cout << ", ";
+                    }
+                }
+                cout << '\n';
+            }
+            cout << "---------------------------\n";
 
         }
-        else if (choice == 3) 
+        else if (choice == 5) 
         {
             cout << "공방 문을 닫습니다..." << '\n';
             break;
