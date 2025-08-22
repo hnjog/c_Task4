@@ -8,6 +8,9 @@
     <ClCompile Include="AlchemyWorkshop.cpp">
       <Filter>Contents\Shop</Filter>
     </ClCompile>
+    <ClCompile Include="PotionDictionary.cpp">
+      <Filter>Contents\Shop\ShopFunc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -19,6 +22,9 @@
     <Filter Include="Contents\Shop">
       <UniqueIdentifier>{0139b04f-ea7c-498d-ae66-bfc3e785f21c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\Shop\ShopFunc">
+      <UniqueIdentifier>{fda6b30f-7510-4720-b57c-f4a759a09f53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PotionRecipe.h">
@@ -26,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="AlchemyWorkshop.h">
       <Filter>Contents\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionDictionary.h">
+      <Filter>Contents\Shop\ShopFunc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
