@@ -5,6 +5,7 @@
 #include <memory>
 
 class PotionDictionary;
+class PotionRepository;
 class PotionRecipe;
 
 using namespace std;
@@ -27,5 +28,6 @@ public:
     vector<PotionRecipe> SearchRecipeByIngredient(const string& ingredient) const;
 
 protected:
-    unique_ptr<PotionDictionary> MyPoctionDictonary;
+    shared_ptr<PotionDictionary> MyPoctionDictonary;
+    unique_ptr<PotionRepository> MyPotionRepository;
 };

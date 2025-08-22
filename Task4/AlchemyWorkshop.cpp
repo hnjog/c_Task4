@@ -4,7 +4,8 @@
 
 AlchemyWorkshop::AlchemyWorkshop()
 {
-	MyPoctionDictonary = make_unique<PotionDictionary>();
+	MyPoctionDictonary = make_shared<PotionDictionary>();
+	MyPotionRepository = make_unique<PotionRepository>(MyPoctionDictonary);
 }
 
 AlchemyWorkshop::~AlchemyWorkshop()
