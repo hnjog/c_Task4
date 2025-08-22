@@ -131,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlchemyWorkshop.h" />
-    <ClInclude Include="Enums.h" />
     <ClInclude Include="PotionDictionary.h" />
     <ClInclude Include="PotionRecipe.h" />
     <ClInclude Include="PotionRepository.h" />

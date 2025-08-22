@@ -28,9 +28,6 @@
     <Filter Include="Contents\Shop\ShopFunc">
       <UniqueIdentifier>{fda6b30f-7510-4720-b57c-f4a759a09f53}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utility">
-      <UniqueIdentifier>{7dc3cae3-8114-4296-88a1-207c62e72961}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PotionRecipe.h">
@@ -44,9 +41,6 @@
     </ClInclude>
     <ClInclude Include="PotionRepository.h">
       <Filter>Contents\Shop\ShopFunc</Filter>
-    </ClInclude>
-    <ClInclude Include="Enums.h">
-      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

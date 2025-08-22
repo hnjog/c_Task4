@@ -1,10 +1,8 @@
-﻿#pragma once
+#pragma once
 
 #include <vector>
 #include <string>
 #include <memory>
-
-#include "Enums.h"
 
 class PotionDictionary;
 class PotionRepository;
@@ -22,8 +20,8 @@ public:
 	virtual ~AlchemyWorkshop();
 
 public:
-	void WorkByRecipe(PotionDictWork recipeWork); // 사전이 할 일
-	void WorkByStocks(PotionRepWork stockWork);   // 저장소가 할 일
+	void DevelopPotionReceipe(const string& name, const vector<string>& ingredients_input) const;
+	void ShowAllPotionReceipe() const;
 
 protected:
 	unique_ptr<PotionDictionary> MyPoctionDictonary;
