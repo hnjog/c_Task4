@@ -9,9 +9,12 @@ using namespace std;
 class PotionRecipe
 {
 public:
+	PotionRecipe();
 	// 생성자: 재료 목록을 받아 초기화하도록 수정
 	PotionRecipe(const string& name, const vector<string>& ingredients);
 	PotionRecipe(const PotionRecipe& other);
+
+	virtual ~PotionRecipe();
 
 public:
 	const string& GetPotionName() const { return potionName; }
