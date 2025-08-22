@@ -1,7 +1,8 @@
-﻿#include "AlchemyWorkshop.h"
+#include "AlchemyWorkshop.h"
 #include "PotionDictionary.h"
 #include "PotionRecipe.h"
 #include "PotionRepository.h"
+#include <iostream>
 
 AlchemyWorkshop::AlchemyWorkshop()
 {
@@ -37,17 +38,19 @@ void AlchemyWorkshop::ShowAllPotionStock() const
 
 void AlchemyWorkshop::ProvidePotion(const string& name)
 {
-	if (name.size() == 0)
+	if (IsValidPotionName(name) == false)
 		return;
 
 	MyPotionRepository->ProvidePotion(name);
 }
 
-void AlchemyWorkshop::ProducePotion(const string& name)
+void AlchemyWorkshop::ReturnEmptyPotion(const string& name)
 {
-	if (name.size() == 0)
+	if (IsValidPotionName(name) == false)
 		return;
 
+	MyPotionRepository->ReturnPotion(name);
+	cout << "자동으로 포션 생성을 시도합니다!" << '\n';
 	MyPotionRepository->DispensePotion(name);
 }
 
@@ -57,4 +60,11 @@ void AlchemyWorkshop::ReturnEmptyPotion(const string& name)
 		return;
 
 	MyPotionRepository->ReturnPotion(name);
+bool AlchemyWorkshop::IsValidPotionName(const string& name)
+{
+	PotionRecipe searchName = MyPoctionDictonary->SearchRecipeByName(name);
+	if (searchName.GetPotionName().size() == 0)
+		return false;
+
+	return true;
 }
