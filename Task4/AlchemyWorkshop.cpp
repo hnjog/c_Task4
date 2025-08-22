@@ -1,5 +1,6 @@
 ﻿#include "AlchemyWorkshop.h"
 #include"PotionDictionary.h"
+#include"PotionRecipe.h"
 
 AlchemyWorkshop::AlchemyWorkshop()
 {
@@ -18,4 +19,14 @@ void AlchemyWorkshop::addRecipe(const string& name, const vector<string>& ingred
 void AlchemyWorkshop::displayAllRecipes() const
 {
 	MyPoctionDictonary->displayAllRecipes();
+}
+
+PotionRecipe AlchemyWorkshop::SearchRecipeByName(const string& name) const
+{
+	return MyPoctionDictonary->SearchRecipeByName(name);
+}
+
+vector<PotionRecipe> AlchemyWorkshop::SearchRecipeByIngredient(const string& ingredient) const
+{
+	return MyPoctionDictonary->SearchRecipeByIngredient(ingredient);
 }

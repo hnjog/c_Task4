@@ -5,6 +5,7 @@
 #include <memory>
 
 class PotionDictionary;
+class PotionRecipe;
 
 using namespace std;
 
@@ -21,6 +22,9 @@ public:
 
     // 모든 레시피 출력 메서드
     void displayAllRecipes() const;
+
+    PotionRecipe SearchRecipeByName(const string& name) const;
+    vector< PotionRecipe> SearchRecipeByIngredient(const string& ingredient) const;
 
 protected:
     unique_ptr<PotionDictionary> MyPoctionDictonary;
