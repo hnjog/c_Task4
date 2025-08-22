@@ -20,3 +20,14 @@ PotionRecipe::PotionRecipe(const PotionRecipe& other)
 PotionRecipe::~PotionRecipe()
 {
 }
+
+bool PotionRecipe::IsIngredients(const string& ingredient) const
+{
+	for (const string& ingre : ingredients)
+	{
+		if (ingre == ingredient)
+			return true;
+	}
+
+	return false;
+}
