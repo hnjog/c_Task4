@@ -7,7 +7,8 @@
 using namespace std;
 
 // AlchemyWorkshop 클래스: 레시피 목록을 관리
-class AlchemyWorkshop {
+class AlchemyWorkshop 
+{
 private:
     vector<PotionRecipe> recipes;
 
