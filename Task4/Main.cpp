@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <string>
 #include "PotionRecipe.h"
@@ -13,14 +13,10 @@ int main()
         cout << "⚗️ 연금술 공방 관리 시스템" << '\n';
         cout << "1. 레시피 추가" << '\n';
         cout << "2. 모든 레시피 출력" << '\n';
-        cout << "3. 레시피 검색(이름)" << '\n';
-        cout << "4. 레시피 검색(재료)" << '\n';
-        cout << "5. 물약 재고 현황 출력" << '\n';
-        cout << "6. 레시피로 물약 등록하기" << '\n';
-        cout << "7. 물약 생산하기" << '\n';
-        cout << "8. 물약의 빈병 반환하기" << '\n';
-        cout << "9. 물약 사용하기" << '\n';
-        cout << "10. 종료" << '\n';
+        cout << "3. 물약 재고 현황 출력" << '\n';
+        cout << "4. 물약 생산하기" << '\n';
+        cout << "5. 물약의 빈병 반환하기" << '\n';
+        cout << "6. 종료" << '\n';
         cout << "선택: ";
 
         int choice;
@@ -38,21 +34,44 @@ int main()
         // 각각의 역할에 맞는 함수를 호출하는게 더 좋아보인다
         if (choice == 1) 
         {
-            myWorkshop.WorkByRecipe(PotionDictWork::PDW_ADD_RECIPE);
+            string name;
+            cout << "물약 이름: ";
+            cin.ignore(10000, '\n');
+            getline(cin, name);
+
+            // 여러 재료를 입력받기 위한 로직
+            vector<string> ingredients_input;
+            string ingredient;
+            cout << "필요한 재료들을 입력하세요. (입력 완료 시 '끝' 입력)" << '\n';
+
+            while (true)
+            {
+                cout << "재료 입력: ";
+                getline(cin, ingredient);
+
+                // 사용자가 '끝'을 입력하면 재료 입력 종료
+                if (ingredient == "끝")
+                {
+                    break;
+                }
+                ingredients_input.push_back(ingredient);
+            }
+
+            // 입력받은 재료가 하나 이상 있을 때만 레시피 추가
+            if (!ingredients_input.empty())
+            {
+                myWorkshop.DevelopPotionReceipe(name, ingredients_input);
+            }
+            else
+            {
+                cout << ">> 재료가 입력되지 않아 레시피 추가를 취소합니다." << '\n';
+            }
         }
         else if (choice == 2) 
         {
-            myWorkshop.WorkByRecipe(PotionDictWork::PDW_DIS_ALL);
+            myWorkshop.ShowAllPotionReceipe();
         }
-        else if (choice == 3)
-        {
-            myWorkshop.WorkByRecipe(PotionDictWork::PDW_SRC_NAME);
-        }
-        else if (choice == 4)
-        {
-            myWorkshop.WorkByRecipe(PotionDictWork::PDW_SRC_INGRE);
-        }
-        else if (choice == 10) 
+        else if (choice == 6) 
         {
             cout << "공방 문을 닫습니다..." << '\n';
             break;

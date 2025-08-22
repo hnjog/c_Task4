@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 #include <string>
@@ -22,6 +22,7 @@ public:
 public:
 	void DevelopPotionReceipe(const string& name, const vector<string>& ingredients_input) const;
 	void ShowAllPotionReceipe() const;
+	void ShowAllPotionStock() const;
 
 protected:
 	unique_ptr<PotionDictionary> MyPoctionDictonary;

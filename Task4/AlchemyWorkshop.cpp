@@ -1,4 +1,4 @@
-#include "AlchemyWorkshop.h"
+﻿#include "AlchemyWorkshop.h"
 #include "PotionDictionary.h"
 #include "PotionRecipe.h"
 #include "PotionRepository.h"
@@ -30,8 +30,8 @@ void AlchemyWorkshop::ShowAllPotionReceipe() const
 	MyPoctionDictonary->DisplayAllRecipes();
 }
 
-		{
-			cout << "재료 입력: ";
-			getline(cin, ingredient);
-
+void AlchemyWorkshop::ShowAllPotionStock() const
+{
+	MyPotionRepository->DisplayAllStocks();
+}
 

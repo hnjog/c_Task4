@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <unordered_map>
+#include <map>
 #include <string>
 #include <memory>
 
@@ -39,6 +39,11 @@ public:
 	virtual ~PotionRepository();
 
 public:
+	// 포션 재고 현황
+	void DisplayAllStocks() const;
+
+	void ProvidePotion(const string& potionName);
+
 	// 포션을 MAX_STOCK 까지 초기화
 	void InitializeStock(const string& potionName);
 
@@ -55,6 +60,6 @@ private:
 	bool PotionNameCheck(const string& potionName) const;
 
 protected:
-	unordered_map<string, PotionStack> potionStackMap; // 현재 가진 포션 (공병 x)
+	map<string, PotionStack> potionStockMap; // 현재 가진 포션 (공병 x)
 };
 
