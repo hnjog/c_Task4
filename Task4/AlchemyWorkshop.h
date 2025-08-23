@@ -11,8 +11,7 @@ class PotionRecipe;
 using namespace std;
 
 // AlchemyWorkshop 클래스
-// 사용자에게 포션 관련 작업을 요구 받고
-// 내부 기능들을 이용하여 
+// 사용자에게 포션관련 작업을 제공하는 클래스
 class AlchemyWorkshop
 {
 public:

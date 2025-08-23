@@ -41,7 +41,3 @@ private:
 protected:
 	map<string, PotionStack> potionStackMap; // 현재 가진 포션 (공병 x)
 };
-
-// 현재 작업 방향성
-// AlchmyWork 등이
-//
