@@ -4,32 +4,11 @@
 #include <string>
 #include <memory>
 
+#include "PotionStack.h"
+
 using namespace std;
 
-const int MAX_STOCK = 3;
-
 class PotionDictionary;
-
-struct PotionStack
-{
-public:
-	PotionStack()
-		:remainCount(MAX_STOCK),
-		emptyCount(0)
-	{
-
-	}
-
-	PotionStack(int remainCount, int emptyCount)
-		:remainCount(remainCount),
-		emptyCount(emptyCount)
-	{
-	}
-
-public:
-	int remainCount = 0;
-	int emptyCount = 0;
-};
 
 // 포션 제작 및 소모 관련 클래스
 class PotionRepository
@@ -63,3 +42,6 @@ protected:
 	map<string, PotionStack> potionStockMap; // 현재 가진 포션 (공병 x)
 };
 
+// 현재 작업 방향성
+// AlchmyWork 등이
+//

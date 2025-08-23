@@ -22,8 +22,7 @@ void PotionRepository::DisplayAllStocks() const
 	for (const auto& potionStockPair : potionStockMap)
 	{
 		cout << "- 물약 이름: " << potionStockPair.first << '\n';
-		cout << "-- 재고 : " << potionStockPair.second.remainCount << '\n';
-		cout << "--- 회수된 빈병 : " << potionStockPair.second.emptyCount << '\n';
+		potionStockPair.second.DisplayStock();
 		cout << "---------------------------\n";
 	}
 	cout << "----------------------------------\n";
@@ -34,15 +33,15 @@ void PotionRepository::ProvidePotion(const string& potionName)
 	if (PotionNameCheck(potionName) == false)
 		return;
 
-	if (potionStockMap[potionName].remainCount <= 0)
+	if (potionStockMap[potionName].Provide())
+	{
+		cout << "포션 제공 완료!" << '\n';
+		cout << potionName << "의 남은 재고 수 : " << potionStockMap[potionName].GetRemain() << '\n';
+	}
+	else
 	{
 		cout << "해당 포션이 재고가 없는데요...?" << '\n';
-		return;
 	}
-
-	potionStockMap[potionName].remainCount--;
-	cout << "포션 제공 완료!" << '\n';
-	cout << potionName << "의 남은 재고 수 : " << potionStockMap[potionName].remainCount << '\n';
 }
 
 void PotionRepository::InitializeStock(const string& potionName)
@@ -63,24 +62,30 @@ bool PotionRepository::DispensePotion(const string& potionName)
 	if (PotionNameCheck(potionName) == false)
 		return false;
 
-	if (potionStockMap[potionName].remainCount >= MAX_STOCK)
+	// 생성 시도
+	if (potionStockMap[potionName].Dispense())
 	{
-		cout << "포션 저장소에 이미 최대치인 " << MAX_STOCK << "만큼 존재합니다!" << '\n';
-		return false;
+		// 생성 성공
+		cout << "포션 생성 완료!" << '\n';
+		cout << potionName << "의 재고 개수 : " << potionStockMap[potionName].GetRemain() << '\n';
+		return true;
 	}
-
-	if (potionStockMap[potionName].emptyCount <= 0)
+	else 
 	{
-		cout << "포션 저장소에 해당 포션의 빈 병이 없습니다!" << '\n';
-		cout << "먼저 저장소에 해당 포션의 빈 병을 반환해주세요!" << '\n';
-		return false;
+		// 생성 실패
+		// enum 등으로 실패 타입 반환도 가능하다
+		if (potionStockMap[potionName].IsEmptyZero())
+		{
+			cout << "포션 저장소에 해당 포션의 빈 병이 없습니다!" << '\n';
+			cout << "먼저 저장소에 해당 포션의 빈 병을 반환해주세요!" << '\n';
+		}
+		if (potionStockMap[potionName].IsFull())
+		{
+			cout << "포션 저장소에 이미 최대치인 " << MAX_STOCK << "만큼 존재합니다!" << '\n';
+		}
 	}
-
-	potionStockMap[potionName].remainCount++;
-	potionStockMap[potionName].emptyCount--;
-	cout << "포션 생성 완료!" << '\n';
-	cout << potionName << "의 재고 개수 : " << potionStockMap[potionName].remainCount << '\n';
-	return true;
+	
+	return false;
 }
 
 void PotionRepository::ReturnPotion(const string& potionName)
@@ -88,16 +93,16 @@ void PotionRepository::ReturnPotion(const string& potionName)
 	if (PotionNameCheck(potionName) == false)
 		return;
 
-	if (potionStockMap[potionName].emptyCount >= MAX_STOCK)
+	if (potionStockMap[potionName].ReturnEmpty())
+	{
+		cout << "빈병 수거 완료!" << '\n';
+		cout << potionName << "의 빈병 개수 : " << potionStockMap[potionName].GetEmpty() << '\n';
+	}
+	else
 	{
 		cout << "빈 병이 이미 넘칩니다!" << '\n';
 		cout << "새로운 포션을 생성해주세요!" << '\n';
-		return;
 	}
-
-	potionStockMap[potionName].emptyCount++;
-	cout << "빈병 수거 완료!" << '\n';
-	cout << potionName << "의 빈병 개수 : " << potionStockMap[potionName].emptyCount << '\n';
 }
 
 int PotionRepository::GetPotionStack(const string& potionName)
@@ -105,7 +110,7 @@ int PotionRepository::GetPotionStack(const string& potionName)
 	if (PotionNameCheck(potionName) == false)
 		return 0;
 
-	return potionStockMap[potionName].remainCount;
+	return potionStockMap[potionName].GetRemain();
 }
 
 bool PotionRepository::PotionNameCheck(const string& potionName) const

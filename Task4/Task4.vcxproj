@@ -128,12 +128,14 @@
     <ClCompile Include="PotionDictionary.cpp" />
     <ClCompile Include="PotionRecipe.cpp" />
     <ClCompile Include="PotionRepository.cpp" />
+    <ClCompile Include="PotionStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlchemyWorkshop.h" />
     <ClInclude Include="PotionDictionary.h" />
     <ClInclude Include="PotionRecipe.h" />
     <ClInclude Include="PotionRepository.h" />
+    <ClInclude Include="PotionStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
