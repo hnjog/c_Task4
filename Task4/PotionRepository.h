@@ -39,7 +39,7 @@ private:
 	bool PotionNameCheck(const string& potionName) const;
 
 protected:
-	map<string, PotionStack> potionStockMap; // 현재 가진 포션 (공병 x)
+	map<string, PotionStack> potionStackMap; // 현재 가진 포션 (공병 x)
 };
 
 // 현재 작업 방향성
